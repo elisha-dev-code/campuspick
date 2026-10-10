@@ -15,6 +15,7 @@
     <nav class="nav-links" id="nav-links">
       <a href="index.php">Home</a>
       <a href="products.php">Products</a>
+      <a href="print.php">Custom Print</a>
       <a href="cart.php">Cart <span class="cart-badge" id="cart-count">0</span></a>
       <a href="login.php">Login</a>
     </nav>
