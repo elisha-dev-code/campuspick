@@ -48,4 +48,4 @@ document.getElementById('add-print').addEventListener('click', function () {
   showToast('Picked! Your design is in the cart.');
 });
 
-updatePreview();
+window.addEventListener('load', updatePreview);
