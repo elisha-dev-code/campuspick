@@ -11,7 +11,8 @@
 <header class="site-header">
   <div class="container nav">
     <a href="index.php" class="logo">Campus<span>Pick</span></a>
-    <nav class="nav-links">
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="nav-links">
       <a href="index.php">Home</a>
       <a href="products.php">Products</a>
       <a href="cart.php">Cart <span class="cart-badge" id="cart-count">0</span></a>

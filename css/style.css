@@ -187,4 +187,130 @@ main { flex: 1; }
 
 
 
+/* Bigger tap targets, smoother text */
+.nav-links a, .chip, .btn { min-height: 44px; display: inline-flex; align-items: center; }
+.hero h1 { font-size: clamp(1.7rem, 5vw, 3rem); }
+.hero p { font-size: clamp(1rem, 2.5vw, 1.2rem); }
 
+/* Cards fade in one after another */
+.grid .card { animation: rise 0.5s var(--ease) both; }
+.grid .card:nth-child(2) { animation-delay: 0.07s; }
+.grid .card:nth-child(3) { animation-delay: 0.14s; }
+.grid .card:nth-child(4) { animation-delay: 0.21s; }
+.grid .card:nth-child(5) { animation-delay: 0.28s; }
+.grid .card:nth-child(6) { animation-delay: 0.35s; }
+
+@media (max-width: 700px) {
+  .menu-btn { display: block; }
+  .nav { flex-wrap: wrap; }
+  .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: 10px; }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 4px; border-top: 1px solid rgba(255,255,255,0.15); }
+
+  .hero { padding: 40px 0; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .card-img { height: 120px; font-size: 2rem; }
+  .card-body { padding: 10px; }
+  .card-name { font-size: 0.9rem; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+  .chip { white-space: nowrap; }
+  .detail-img { height: 240px; }
+  .btn-row .btn { flex: 1; justify-content: center; }
+}
+
+/* Respect users who turn animations off */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+
+/* Signup: fit on one screen, centered */
+.su-page { justify-content: center; padding: 16px; }
+.su-logo { font-size: 2rem; margin-bottom: 10px; }
+.su-card { padding: 20px 24px; }
+.su-card h1 { font-size: 1.35rem; }
+.su-card .sub { font-size: 0.9rem; }
+.su-divider { margin: 8px 0 12px; }
+.su-card .field { margin-bottom: 8px; }
+.su-card .field input { padding: 10px 12px; font-size: 0.95rem; }
+.su-card .role-pick span { padding: 10px 8px; }
+.su-note { font-size: 0.72rem; margin: 2px 0 10px; }
+.su-card .btn { padding: 12px; }
+.su-login { margin-top: 10px; }
+#strength { margin-top: 6px; }
+
+
+
+/* Day 3 fixes */
+.logo { display: inline-block; }
+.btn { justify-content: center; text-align: center; }
+
+.su-page { justify-content: center; padding: 16px; }
+.su-logo { font-size: 2rem; margin-bottom: 10px; }
+.su-card { padding: 20px 24px; }
+.su-card h1 { font-size: 1.35rem; }
+.su-card .sub { font-size: 0.9rem; }
+.su-divider { margin: 8px 0 12px; }
+.su-card .field { margin-bottom: 8px; }
+.su-card .field input { padding: 10px 12px; font-size: 0.95rem; }
+.su-card .role-pick span { padding: 10px 8px; }
+.su-note { font-size: 0.72rem; margin: 2px 0 10px; }
+.su-card .btn { padding: 12px; }
+.su-login { margin-top: 10px; }
+#strength { margin-top: 6px; }
+
+/* Mobile fixes (keep at the very bottom) */
+main { width: 100%; min-width: 0; }
+.nav { padding-left: 16px; padding-right: 16px; }
+
+@media (max-width: 800px) {
+  .auth { min-height: 100vh; min-height: 100dvh; grid-template-rows: auto 1fr; }
+  .auth-brand { padding: 14px 16px; }
+  .auth-brand h2 { font-size: 1.15rem; margin: 6px 0 0; }
+  .auth-brand p { display: none; }
+  .auth-side { padding: 14px 16px; }
+  .auth-back { margin-bottom: 8px; }
+  .auth-box h1 { font-size: 1.5rem; }
+  .auth-box .sub { margin: 2px 0 14px; }
+  .auth-box .field { margin-bottom: 12px; }
+}
+
+@media (max-width: 600px) {
+  .su-page { min-height: 100vh; min-height: 100dvh; padding: 10px 12px; }
+  .su-logo { font-size: 1.6rem; margin-bottom: 8px; }
+  .su-card { padding: 14px 16px; }
+  .su-card h1 { font-size: 1.15rem; }
+  .su-card .sub { display: none; }
+  .su-divider { margin: 8px 0 10px; }
+  .su-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .su-card .field input { font-size: 1rem; }
+  .su-card .pass-wrap input { padding-right: 64px; }
+  .su-card .role-pick span { font-size: 0.85rem; padding: 10px 4px; white-space: nowrap; }
+  .su-note { font-size: 0.68rem; line-height: 1.35; margin: 0 0 8px; }
+  .su-login { margin-top: 8px; }
+}
+
+/* Login, Facebook style */
+.fb-page { min-height: 100vh; min-height: 100dvh; background: #eaf2ed; display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+.fb-wrap { width: 100%; max-width: 980px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.fb-logo { display: inline-block; font-size: 3rem; font-weight: 700; color: var(--green); line-height: 1.1; }
+.fb-logo span { color: var(--gold); }
+.fb-brand p { font-size: 1.5rem; line-height: 1.35; margin-top: 12px; max-width: 460px; }
+.fb-card { background: var(--white); border-radius: 16px; box-shadow: 0 8px 28px rgba(11,93,59,0.12); padding: 20px; width: 100%; max-width: 420px; justify-self: center; animation: rise 0.5s var(--ease); }
+.fb-card .field { margin-bottom: 12px; }
+.fb-card .field input { padding: 14px 12px; }
+.fb-card .btn { width: 100%; font-size: 1.1rem; padding: 13px; }
+.fb-card .btn:disabled { opacity: 0.7; cursor: wait; }
+.fb-forgot { display: block; text-align: center; margin: 14px 0; color: var(--green); font-weight: 500; }
+.fb-divider { border: 0; border-top: 1px solid #e3dfd2; margin: 4px 0 18px; }
+.fb-create { text-align: center; }
+.fb-create .btn { width: auto; padding: 12px 22px; font-size: 1rem; }
+.fb-back { display: block; text-align: center; margin-top: 14px; color: var(--green); font-weight: 600; }
+
+@media (max-width: 800px) {
+  .fb-wrap { grid-template-columns: 1fr; gap: 14px; text-align: center; }
+  .fb-logo { font-size: 2.2rem; }
+  .fb-brand p { font-size: 1rem; margin: 4px auto 0; }
+  .fb-page { padding: 12px; }
+  .fb-card { padding: 16px; }
+}
