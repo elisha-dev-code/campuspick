@@ -458,6 +458,28 @@ a { color: inherit; text-decoration: none; }
 .print-price { font-size: 1.2rem; margin: 6px 0 14px; }
 @media (max-width: 800px) { .print-layout { grid-template-columns: 1fr; } }
 
+/* Quiz */
+.quiz { max-width: 640px; margin: 32px auto; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.quiz h2 { color: var(--green); margin: 6px 0 16px; }
+.quiz-step { color: var(--muted); font-size: 0.9rem; }
+.quiz-progress { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; margin-bottom: 14px; }
+.quiz-progress span { display: block; height: 100%; background: var(--gold); transition: width var(--speed) var(--ease); }
+.quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.quiz-opt {
+  min-height: 56px;
+  padding: 12px;
+  border: 2px solid #d8d3c3;
+  border-radius: 12px;
+  background: var(--bg);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform var(--speed) var(--ease), border-color var(--speed) var(--ease), background var(--speed) var(--ease);
+}
+.quiz-opt:hover { border-color: var(--green); background: #e6efe9; transform: translateY(-2px); }
+.quiz-results { display: grid; gap: 12px; }
+@media (max-width: 600px) { .quiz { margin: 16px auto; padding: 16px; } .quiz-options { grid-template-columns: 1fr; } }
+
 /* ---------- 14. Mobile rules (always last) ---------- */
 
 @media (max-width: 800px) {
