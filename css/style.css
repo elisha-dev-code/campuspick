@@ -424,7 +424,29 @@ a { color: inherit; text-decoration: none; }
 .grid .card:nth-child(6) { animation-delay: 0.35s; }
 .fb-card, .su-card { animation: rise 0.5s var(--ease); }
 
+/* Toast message and badge bounce */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 20px);
+  background: var(--gold);
+  color: var(--green-dark);
+  padding: 12px 20px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  transition: opacity var(--speed) var(--ease), transform var(--speed) var(--ease);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+@keyframes bump { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.4); } }
+.cart-badge.bump { animation: bump 0.4s var(--ease); }
+
 /* ---------- 14. Mobile rules (always last) ---------- */
+
 @media (max-width: 800px) {
   .cart-layout { grid-template-columns: 1fr; }
   .cart-summary { position: static; }
