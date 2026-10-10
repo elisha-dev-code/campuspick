@@ -1,16 +1,11 @@
 <?php
-$servername = "localhost";
-$name = "root";
-$password = "";
-$db = "campuspick";
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $conn = new mysqli("localhost", "root", "", "campuspick");
 
-if ($conn -> connect_error) {
-    die ("Connnection failed: ". $conn->connect_error);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-
-$conn-> set_charset("utf8mb4");
-
-
-?>
+$conn->set_charset("utf8mb4");

@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$user = $_SESSION['user'] ?? null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +24,11 @@
       <a href="print.php">Custom Print</a>
       <a href="quiz.php">Find your match</a>
       <a href="cart.php">Cart <span class="cart-badge" id="cart-count">0</span></a>
-      <a href="login.php">Login</a>
+      <?php if ($user): ?>
+        <a href="logout.php">Log out (<?php echo htmlspecialchars(explode(' ', $user['name'])[0]); ?>)</a>
+      <?php else: ?>
+        <a href="login.php">Login</a>
+      <?php endif; ?>
     </nav>
   </div>
 </header>

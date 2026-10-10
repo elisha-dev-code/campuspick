@@ -1,6 +1,39 @@
 <?php
 $pageTitle = 'Login';
 $authPage = true;
+include 'includes/db.php';
+
+if (isset($_SESSION['user'])) {
+    header('Location: products.php');
+    exit;
+}
+
+$error = '';
+$email = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = strtolower(trim($_POST['email'] ?? ''));
+    $pass  = $_POST['password'] ?? '';
+
+    $stmt = $conn->prepare("SELECT id, name, password, role FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();
+
+    if ($user && password_verify($pass, $user['password'])) {
+        session_regenerate_id(true);
+        $_SESSION['user'] = ['id' => $user['id'], 'name' => $user['name'], 'role' => $user['role']];
+
+        $next = $_GET['next'] ?? '';
+        if (!preg_match('/^[a-z_]+\.php$/', $next)) {
+            $next = 'products.php';
+        }
+        header('Location: ' . $next);
+        exit;
+    }
+    $error = 'Incorrect email or password.';
+}
+
 include 'includes/header.php';
 ?>
 <div class="fb-page">
@@ -30,9 +63,13 @@ include 'includes/header.php';
           <p>Log in to pick, buy and sell.</p>
         </div>
 
-        <form method="POST" action="login.php" class="auth-form">
+        <?php if ($error): ?>
+          <div class="alert" role="alert"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
+
+        <form method="POST" class="auth-form">
           <div class="field">
-            <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required>
+            <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" value="<?php echo htmlspecialchars($email); ?>" required>
           </div>
           <div class="field">
             <div class="pass-wrap">
