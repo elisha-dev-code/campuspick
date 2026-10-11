@@ -484,6 +484,19 @@ a { color: inherit; text-decoration: none; }
 .alert { background: #fdecea; color: #8a2b24; border: 1px solid #f3c2bd; border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; font-size: 0.9rem; }
 .alert ul { margin-left: 18px; }
 
+/* Seller pages */
+.form-panel { max-width: 560px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin: 16px 0; }
+.field label { display: block; font-weight: 500; margin-bottom: 6px; }
+.field select, .field textarea { width: 100%; padding: 12px; border: 1px solid #d8d3c3; border-radius: 10px; font: inherit; background: var(--bg); }
+.field select:focus, .field textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(11, 93, 59, 0.15); }
+.img-preview { display: block; margin-top: 10px; max-width: 220px; border-radius: 10px; border: 1px solid var(--line); }
+.notice { background: #e6efe9; color: var(--green); border: 1px solid #c9ddd1; border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; }
+.my-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.my-row { display: flex; align-items: center; gap: 14px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; margin-bottom: 12px; }
+.my-thumb { width: 72px; height: 72px; border-radius: 10px; background: linear-gradient(135deg, var(--green), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; overflow: hidden; flex-shrink: 0; }
+.my-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.my-info { flex: 1; min-width: 0; }
+
 /* ---------- 14. Mobile rules (always last) ---------- */
 
 @media (max-width: 800px) {

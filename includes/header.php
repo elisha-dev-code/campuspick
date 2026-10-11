@@ -24,6 +24,10 @@ $user = $_SESSION['user'] ?? null;
       <a href="print.php">Custom Print</a>
       <a href="quiz.php">Find your match</a>
       <a href="cart.php">Cart <span class="cart-badge" id="cart-count">0</span></a>
+      <?php if ($user && $user['role'] === 'seller'): ?>
+  <a href="my_products.php">Sell</a>
+<?php endif; ?>
+
       <?php if ($user): ?>
         <a href="logout.php">Log out (<?php echo htmlspecialchars(explode(' ', $user['name'])[0]); ?>)</a>
       <?php else: ?>
