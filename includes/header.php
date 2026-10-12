@@ -29,8 +29,8 @@ $user = $_SESSION['user'] ?? null;
 <?php endif; ?>
 
       <?php if ($user): ?>
-        <a href="logout.php">Log out (<?php echo htmlspecialchars(explode(' ', $user['name'])[0]); ?>)</a>
         <a href="my_orders.php">My orders</a>
+        <a href="logout.php">Log out (<?php echo htmlspecialchars(explode(' ', $user['name'])[0]); ?>)</a>
       <?php else: ?>
         <a href="login.php">Login</a>
       <?php endif; ?>
