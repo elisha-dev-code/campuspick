@@ -1,3 +1,4 @@
 includes/config.php
 uploads/*
 !uploads/.htaccess
+includes/config.live.php
