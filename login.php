@@ -80,7 +80,7 @@ include 'includes/header.php';
           <button type="submit" class="btn btn-green">Log in</button>
         </form>
 
-        <a href="#" class="fb-forgot">Forgot password?</a>
+        <!-- <a href="#" class="fb-forgot">Forgot password?</a> -->
         <hr class="fb-divider">
         <div class="fb-create">
           <a href="signup.php" class="btn">Create new account</a>
